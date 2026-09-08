@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Love 💜</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Mali:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'Mali', cursive;
+    background:
+        radial-gradient(circle at 20% 20%, #d9c8ff 0%, transparent 30%),
+        radial-gradient(circle at 80% 30%, #bcd9ff 0%, transparent 30%),
+        linear-gradient(135deg, #aaa5ff, #a8d8ff, #d9c4ff);
+    color: #4d4b91;
+}
+
+/* ---------------- Background ---------------- */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -2;
+}
+
+.star {
+    position: absolute;
+    color: white;
+    animation: twinkle 2s infinite alternate;
+    opacity: .8;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: .2;
+        transform: scale(.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.cloud {
+    position: absolute;
+    width: 180px;
+    height: 70px;
+    background: rgba(255,255,255,.45);
+    border-radius: 100px;
+    filter: blur(2px);
+}
+
+.cloud::before,
+.cloud::after {
+    content: "";
+    position: absolute;
+    background: rgba(255,255,255,.45);
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 80px;
+    height: 80px;
+    left: 25px;
+    top: -35px;
+}
+
+.cloud::after {
+    width: 100px;
+    height: 100px;
+    right: 20px;
+    top: -50px;
+}
+
+/* ---------------- Main ---------------- */
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card {
+    width: min(600px, 95vw);
+    min-height: 600px;
+    padding: 45px 35px;
+    border-radius: 35px;
+
+    background: rgba(255,255,255,.58);
+    backdrop-filter: blur(20px);
+
+    border: 2px solid rgba(255,255,255,.7);
+
+    box-shadow:
+        0 25px 60px rgba(76,68,160,.25),
+        inset 0 0 30px rgba(255,255,255,.35);
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.screen {
+    display: none;
+    width: 100%;
+    animation: fadeIn .6s ease;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ---------------- Typography ---------------- */
+
+h1 {
+    font-family: 'Itim', cursive;
+    font-size: clamp(42px, 8vw, 72px);
+    color: #6260c8;
+    text-shadow: 0 5px 15px rgba(96,90,200,.2);
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-family: 'Itim', cursive;
+    font-size: clamp(35px, 7vw, 55px);
+    color: #6664c9;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #67659c;
+}
+
+.subtitle {
+    margin-bottom: 30px;
+}
+
+.heart-big {
+    font-size: 90px;
+    animation: heartBeat 1.2s infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes heartBeat {
+    0%,100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+/* ---------------- Buttons ---------------- */
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+button {
+    border: none;
+    font-family: 'Mali', cursive;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 15px 30px;
+    border-radius: 999px;
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+    box-shadow: 0 8px 20px rgba(80,70,170,.18);
+}
+
+button:hover {
+    transform: translateY(-4px) scale(1.03);
+}
+
+.primary {
+    background: linear-gradient(135deg,#8d86ff,#6e9cff);
+    color: white;
+}
+
+.love {
+    background: linear-gradient(135deg,#ff91cf,#ff70b7);
+    color: white;
+}
+
+.no-love {
+    background: linear-gradient(135deg,#9cbaff,#7395ed);
+    color: white;
+}
+
+.next {
+    background: linear-gradient(135deg,#9187ff,#8cafff);
+    color: white;
+}
+
+/* ---------------- Questions ---------------- */
+
+.question-number {
+    display: inline-block;
+    background: rgba(255,255,255,.75);
+    padding: 7px 18px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+    color: #7774c7;
+    font-weight: 600;
+}
+
+.question {
+    font-family: 'Itim', cursive;
+    font-size: 35px;
+    color: #5653a4;
+    margin-bottom: 25px;
+}
+
+.answer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    width: 100%;
+    max-width: 450px;
+    margin: auto;
+}
+
+.answer {
+    width: 100%;
+    background: rgba(255,255,255,.75);
+    color: #6260a5;
+    border: 2px solid rgba(137,135,230,.25);
+    box-shadow: none;
+}
+
+.answer:hover {
+    background: white;
+    border-color: #aaa7ff;
+}
+
+/* ---------------- Message ---------------- */
+
+.message {
+    background: rgba(255,255,255,.5);
+    padding: 25px;
+    border-radius: 25px;
+    margin: 20px 0;
+}
+
+.message p {
+    font-size: 20px;
+}
+
+.small {
+    font-size: 15px;
+    opacity: .8;
+}
+
+/* ---------------- Final ---------------- */
+
+.final-screen {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 50% 50%, #7774dc, #44499e 80%);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    overflow: hidden;
+}
+
+.final-screen.active {
+    display: flex;
+}
+
+.final-content {
+    text-align: center;
+    color: white;
+    z-index: 30;
+    animation: finalAppear 1.2s ease;
+    padding: 20px;
+}
+
+@keyframes finalAppear {
+    from {
+        opacity: 0;
+        transform: scale(.6);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.final-content h1 {
+    color: white;
+    font-size: clamp(55px, 12vw, 110px);
+    text-shadow:
+        0 0 15px #fff,
+        0 0 35px #aaa8ff;
+}
+
+.final-content h2 {
+    color: white;
+    font-size: clamp(40px, 8vw, 75px);
+}
+
+.final-content p {
+    color: white;
+    max-width: 650px;
+    margin: 15px auto;
+}
+
+.final-heart {
+    font-size: 70px;
+    animation: heartBeat 1s infinite;
+}
+
+/* ---------------- Floating Hearts ---------------- */
+
+.floating-heart {
+    position: fixed;
+    bottom: -50px;
+    font-size: 25px;
+    animation: floatUp linear forwards;
+    pointer-events: none;
+    z-index: 10;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ---------------- Fireworks ---------------- */
+
+#fireworks {
+    position: fixed;
+    inset: 0;
+    z-index: 25;
+    pointer-events: none;
+}
+
+/* ---------------- Progress ---------------- */
+
+.progress {
+    width: 100%;
+    max-width: 400px;
+    height: 8px;
+    background: rgba(255,255,255,.5);
+    border-radius: 20px;
+    margin: 25px auto;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 20%;
+    background: linear-gradient(90deg,#ff91d4,#8b9dff);
+    border-radius: 20px;
+    transition: width .5s ease;
+}
+
+/* ---------------- Mobile ---------------- */
+
+@media (max-width: 600px) {
+
+    .card {
+        min-height: 570px;
+        padding: 30px 20px;
+    }
+
+    .question {
+        font-size: 29px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 13px 23px;
+    }
+
+    .heart-big {
+        font-size: 70px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background" id="background"></div>
+
+<div class="container">
+
+<div class="card">
+
+    <!-- ================= PAGE 1 ================= -->
+
+    <section class="screen active" id="screen1">
+
+        <div class="heart-big">💜</div>
+
+        <h1>มีอะไรอยากถาม...</h1>
+
+        <p class="subtitle">
+            คำถามสำคัญมาก ๆ<br>
+            ขอให้ตอบตามความจริงนะ 👀
+        </p>
+
+        <button class="primary" onclick="nextScreen(2)">
+            พร้อมแล้ว 💗
+        </button>
+
+    </section>
+
+
+    <!-- ================= PAGE 2 ================= -->
+
+    <section class="screen" id="screen2">
+
+        <div class="question-number">
+            คำถามสำคัญที่สุด 💌
+        </div>
+
+        <div class="heart-big">🥺</div>
+
+        <div class="question">
+            รักเค้ามั้ย?
+        </div>
+
+        <p>
+            คิดดี ๆ ก่อนตอบนะ<br>
+            เพราะคำตอบมีผลต่อหัวใจเค้ามาก ๆ 💔
+        </p>
+
+        <div class="buttons">
+
+            <button class="love" onclick="loveAnswer()">
+                ❤️ รัก
+            </button>
+
+            <button
+                class="no-love"
+                id="noLove"
+                onmouseover="runAway()"
+                onclick="runAway()">
+                💔 ไม่รัก
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PAGE 3 ================= -->
+
+    <section class="screen" id="screen3">
+
+        <div class="question-number">
+            คำถามที่ 1 / 5
+        </div>
+
+        <div class="question">
+            เวลาเราอยู่ด้วยกัน<br>
+            ชอบทำอะไรมากที่สุด? 🥰
+        </div>
+
+        <div class="answer-list">
+
+            <button class="answer" onclick="answerQuestion(4)">
+                💕 อยู่ด้วยกันเฉย ๆ
+            </button>
+
+            <button class="answer" onclick="answerQuestion(4)">
+                🍜 หาอะไรกินด้วยกัน
+            </button>
+
+            <button class="answer" onclick="answerQuestion(4)">
+                🎮 เล่นอะไรด้วยกัน
+            </button>
+
+            <button class="answer" onclick="answerQuestion(4)">
+                🫶 ทุกอย่างที่มีเธอ
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PAGE 4 ================= -->
+
+    <section class="screen" id="screen4">
+
+        <div class="question-number">
+            คำถามที่ 2 / 5
+        </div>
+
+        <div class="question">
+            ถ้าเราได้ไปเที่ยวด้วยกัน<br>
+            อยากไปที่ไหน? ✈️
+        </div>
+
+        <div class="answer-list">
+
+            <button class="answer" onclick="answerQuestion(5)">
+                🌊 ทะเล
+            </button>
+
+            <button class="answer" onclick="answerQuestion(5)">
+                ⛰️ ภูเขา
+            </button>
+
+            <button class="answer" onclick="answerQuestion(5)">
+                🌃 เมืองสวย ๆ
+            </button>
+
+            <button class="answer" onclick="answerQuestion(5)">
+                🏠 ที่ไหนก็ได้ ขอแค่มีเธอ
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PAGE 5 ================= -->
+
+    <section class="screen" id="screen5">
+
+        <div class="question-number">
+            คำถามที่ 3 / 5
+        </div>
+
+        <div class="question">
+            ถ้าเค้างอน... 🥺
+            <br>
+            จะทำยังไง?
+        </div>
+
+        <div class="answer-list">
+
+            <button class="answer" onclick="answerQuestion(6)">
+                🫂 กอด
+            </button>
+
+            <button class="answer" onclick="answerQuestion(6)">
+                🍰 ซื้อของกินให้
+            </button>
+
+            <button class="answer" onclick="answerQuestion(6)">
+                💬 ง้อ
+            </button>
+
+            <button class="answer" onclick="answerQuestion(6)">
+                💜 ทำทุกอย่างที่ทำให้หายงอน
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PAGE 6 ================= -->
+
+    <section class="screen" id="screen6">
+
+        <div class="question-number">
+            คำถามที่ 4 / 5
+        </div>
+
+        <div class="question">
+            คิดว่าเค้าน่ารักมั้ย? 👀
+        </div>
+
+        <div class="answer-list">
+
+            <button class="answer" onclick="answerQuestion(7)">
+                😳 น่ารักมาก
+            </button>
+
+            <button class="answer" onclick="answerQuestion(7)">
+                🥰 น่ารักที่สุด
+            </button>
+
+            <button class="answer" onclick="answerQuestion(7)">
+                💗 น่ารักเกินไปแล้ว
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PAGE 7 ================= -->
+
+    <section class="screen" id="screen7">
+
+        <div class="question-number">
+            คำถามสุดท้าย 💌
+        </div>
+
+        <div class="question">
+            อยากอยู่กับเค้า<br>
+            ไปนาน ๆ มั้ย?
+        </div>
+
+        <div class="buttons">
+
+            <button class="love" onclick="answerQuestion(8)">
+                ❤️ อยากสิ
+            </button>
+
+            <button class="love" onclick="answerQuestion(8)">
+                💕 อยากมาก
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PAGE 8 ================= -->
+
+    <section class="screen" id="screen8">
+
+        <div class="heart-big">🥰</div>
+
+        <h2>เฉลยแล้ววว...</h2>
+
+        <div class="message">
+
+            <p>
+                จริง ๆ แล้วคำถามทั้งหมด<br>
+                ไม่ได้มีคำตอบที่ผิดเลยนะ
+            </p>
+
+            <br>
+
+            <p>
+                เพราะคำตอบที่เค้าอยากได้ที่สุด<br>
+                ก็คือ...
+            </p>
+
+            <br>
+
+            <h2>“เธอยังอยู่กับเค้า” 💜</h2>
+
+        </div>
+
+        <button class="primary" onclick="showFinal()">
+            ไปดูข้อความสุดท้าย 💌
+        </button>
+
+    </section>
+
+</div>
+</div>
+
+
+<!-- ================= FINAL ================= -->
+
+<div class="final-screen" id="finalScreen">
+
+    <canvas id="fireworks"></canvas>
+
+    <div class="final-content">
+
+        <div class="final-heart">
+            💜
+        </div>
+
+        <h1>
+            Happy
+        </h1>
+
+        <h2>
+            1 Month 🎉
+        </h2>
+
+        <p>
+            ขอบคุณที่เข้ามาเป็นความสุขในชีวิตเค้านะ
+            <br>
+            ขอบคุณสำหรับทุกช่วงเวลาที่เราได้อยู่ด้วยกัน
+        </p>
+
+        <p>
+            ถึงจะเพิ่งผ่านมาแค่ 1 เดือน
+            <br>
+            แต่เค้าก็อยากมีเธออยู่ด้วยกันไปนาน ๆ เลยนะ 🥺
+        </p>
+
+        <p>
+            <strong>รักเธอที่สุดเลยนะ 💜</strong>
+        </p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   BACKGROUND STARS
+===================================================== */
+
+const background = document.getElementById("background");
+
+for(let i = 0; i < 70; i++){
+
+    const star = document.createElement("div");
+
+    star.className = "star";
+
+    star.innerHTML = Math.random() > .5 ? "✦" : "·";
+
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+
+    star.style.fontSize =
+        (Math.random() * 15 + 8) + "px";
+
+    star.style.animationDelay =
+        Math.random() * 2 + "s";
+
+    background.appendChild(star);
+}
+
+
+/* Clouds */
+
+for(let i = 0; i < 6; i++){
+
+    const cloud = document.createElement("div");
+
+    cloud.className = "cloud";
+
+    cloud.style.left =
+        Math.random() * 100 + "%";
+
+    cloud.style.top =
+        Math.random() * 100 + "%";
+
+    cloud.style.transform =
+        `scale(${Math.random() * .7 + .5})`;
+
+    background.appendChild(cloud);
+}
+
+
+/* =====================================================
+   SCREEN SYSTEM
+===================================================== */
+
+function nextScreen(number){
+
+    document
+        .querySelectorAll(".screen")
+        .forEach(screen => {
+            screen.classList.remove("active");
+        });
+
+    document
+        .getElementById("screen" + number)
+        .classList.add("active");
+
+}
+
+
+/* =====================================================
+   LOVE BUTTON
+===================================================== */
+
+function loveAnswer(){
+
+    createHearts(15);
+
+    nextScreen(3);
+
+}
+
+
+/* =====================================================
+   RUN AWAY BUTTON
+===================================================== */
+
+let runCount = 0;
+
+function runAway(){
+
+    const button =
+        document.getElementById("noLove");
+
+    runCount++;
+
+    if(runCount >= 5){
+
+        button.innerHTML = "😭 ยอมแล้ว รักก็ได้";
+
+        button.onmouseover = null;
+
+        button.onclick = () => {
+            loveAnswer();
+        };
+
+        return;
+    }
+
+    const maxX = 180;
+    const maxY = 120;
+
+    const x =
+        Math.random() * maxX - maxX / 2;
+
+    const y =
+        Math.random() * maxY - maxY / 2;
+
+    button.style.transform =
+        `translate(${x}px, ${y}px)`;
+
+}
+
+
+/* =====================================================
+   QUESTIONS
+===================================================== */
+
+function answerQuestion(next){
+
+    createHearts(8);
+
+    setTimeout(() => {
+        nextScreen(next);
+    }, 250);
+
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+function createHearts(amount){
+
+    const hearts = [
+        "💜",
+        "💗",
+        "💙",
+        "💕",
+        "✨",
+        "🤍"
+    ];
+
+    for(let i = 0; i < amount; i++){
+
+        const heart =
+            document.createElement("div");
+
+        heart.className =
+            "floating-heart";
+
+        heart.innerHTML =
+            hearts[Math.floor(Math.random() * hearts.length)];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.fontSize =
+            (Math.random() * 25 + 15) + "px";
+
+        heart.style.animationDuration =
+            (Math.random() * 3 + 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+
+}
+
+
+/* =====================================================
+   FINAL SCREEN
+===================================================== */
+
+function showFinal(){
+
+    document
+        .getElementById("finalScreen")
+        .classList.add("active");
+
+    startFireworks();
+
+    createHearts(30);
+
+}
+
+
+/* =====================================================
+   FIREWORKS
+===================================================== */
+
+const canvas =
+    document.getElementById("fireworks");
+
+const ctx =
+    canvas.getContext("2d");
+
+let fireworks = [];
+
+function resizeCanvas(){
+
+    canvas.width =
+        window.innerWidth;
+
+    canvas.height =
+        window.innerHeight;
+
+}
+
+resizeCanvas();
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+
+class Particle {
+
+    constructor(x, y){
+
+        this.x = x;
+        this.y = y;
+
+        const angle =
+            Math.random() * Math.PI * 2;
+
+        const speed =
+            Math.random() * 7 + 2;
+
+        this.vx =
+            Math.cos(angle) * speed;
+
+        this.vy =
+            Math.sin(angle) * speed;
+
+        this.life = 100;
+
+        this.size =
+            Math.random() * 3 + 1;
+
+        this.color =
+            `hsl(${Math.random() * 360}, 100%, 75%)`;
+    }
+
+    update(){
+
+        this.x += this.vx;
+        this.y += this.vy;
+
+        this.vy += .05;
+
+        this.vx *= .98;
+        this.vy *= .98;
+
+        this.life -= 1;
+    }
+
+    draw(){
+
+        ctx.globalAlpha =
+            this.life / 100;
+
+        ctx.beginPath();
+
+        ctx.arc(
+            this.x,
+            this.y,
+            this.size,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle =
+            this.color;
+
+        ctx.fill();
+
+        ctx.globalAlpha = 1;
+
+    }
+
+}
+
+
+function createFirework(){
+
+    const x =
+        Math.random() * canvas.width;
+
+    const y =
+        Math.random() *
+        canvas.height * .55 +
+        50;
+
+    for(let i = 0; i < 80; i++){
+
+        fireworks.push(
+            new Particle(x,y)
+        );
+
+    }
+
+}
+
+
+function animateFireworks(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    fireworks =
+        fireworks.filter(p => p.life > 0);
+
+    fireworks.forEach(p => {
+
+        p.update();
+        p.draw();
+
+    });
+
+    requestAnimationFrame(
+        animateFireworks
+    );
+
+}
+
+
+function startFireworks(){
+
+    animateFireworks();
+
+    setInterval(() => {
+
+        createFirework();
+
+    }, 650);
+
+}
+
+
+/* =====================================================
+   AUTOMATIC FLOATING HEARTS
+===================================================== */
+
+setInterval(() => {
+
+    if(
+        document
+        .getElementById("finalScreen")
+        .classList.contains("active")
+    ){
+
+        createHearts(3);
+
+    }
+
+}, 1000);
+
+</script>
+
+</body>
+</html>
