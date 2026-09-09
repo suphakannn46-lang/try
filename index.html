@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For My Love 💜</title>
+<title>For You 💜</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Itim&family=Mali:wght@400;500;600;700&display=swap');
@@ -19,27 +19,31 @@ body {
     min-height: 100vh;
     overflow: hidden;
     font-family: 'Mali', cursive;
+
     background:
-        radial-gradient(circle at 20% 20%, #d9c8ff 0%, transparent 30%),
-        radial-gradient(circle at 80% 30%, #bcd9ff 0%, transparent 30%),
-        linear-gradient(135deg, #aaa5ff, #a8d8ff, #d9c4ff);
-    color: #4d4b91;
+        radial-gradient(circle at 15% 20%, #ddd2ff 0%, transparent 30%),
+        radial-gradient(circle at 85% 25%, #c6e3ff 0%, transparent 30%),
+        linear-gradient(135deg, #aaa6ff, #a9d8ff, #dfc9ff);
+
+    color: #55539b;
 }
 
-/* ---------------- Background ---------------- */
+/* =========================================
+   BACKGROUND
+========================================= */
 
 .background {
     position: fixed;
     inset: 0;
     overflow: hidden;
-    z-index: -2;
+    z-index: -5;
 }
 
 .star {
     position: absolute;
     color: white;
-    animation: twinkle 2s infinite alternate;
     opacity: .8;
+    animation: twinkle 2s infinite alternate;
 }
 
 @keyframes twinkle {
@@ -47,6 +51,7 @@ body {
         opacity: .2;
         transform: scale(.7);
     }
+
     to {
         opacity: 1;
         transform: scale(1.2);
@@ -55,24 +60,34 @@ body {
 
 .cloud {
     position: absolute;
+
     width: 180px;
     height: 70px;
-    background: rgba(255,255,255,.45);
+
+    background: rgba(255,255,255,.42);
+
     border-radius: 100px;
+
     filter: blur(2px);
+
+    animation: cloudMove 20s linear infinite;
 }
 
 .cloud::before,
 .cloud::after {
     content: "";
+
     position: absolute;
-    background: rgba(255,255,255,.45);
+
+    background: rgba(255,255,255,.42);
+
     border-radius: 50%;
 }
 
 .cloud::before {
     width: 80px;
     height: 80px;
+
     left: 25px;
     top: -35px;
 }
@@ -80,31 +95,49 @@ body {
 .cloud::after {
     width: 100px;
     height: 100px;
+
     right: 20px;
     top: -50px;
 }
 
-/* ---------------- Main ---------------- */
+@keyframes cloudMove {
+    from {
+        transform: translateX(-30px);
+    }
+
+    to {
+        transform: translateX(30px);
+    }
+}
+
+/* =========================================
+   MAIN CARD
+========================================= */
 
 .container {
     width: 100%;
     min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     padding: 20px;
 }
 
 .card {
-    width: min(600px, 95vw);
-    min-height: 600px;
+    width: min(620px, 95vw);
+    min-height: 610px;
+
     padding: 45px 35px;
+
     border-radius: 35px;
 
-    background: rgba(255,255,255,.58);
+    background: rgba(255,255,255,.60);
+
     backdrop-filter: blur(20px);
 
-    border: 2px solid rgba(255,255,255,.7);
+    border: 2px solid rgba(255,255,255,.75);
 
     box-shadow:
         0 25px 60px rgba(76,68,160,.25),
@@ -113,16 +146,20 @@ body {
     text-align: center;
 
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 
     position: relative;
 }
 
+/* =========================================
+   SCREENS
+========================================= */
+
 .screen {
     display: none;
     width: 100%;
+
     animation: fadeIn .6s ease;
 }
 
@@ -131,37 +168,54 @@ body {
 }
 
 @keyframes fadeIn {
+
     from {
         opacity: 0;
-        transform: translateY(20px) scale(.97);
+        transform: translateY(25px) scale(.97);
     }
+
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
     }
+
 }
 
-/* ---------------- Typography ---------------- */
+/* =========================================
+   TEXT
+========================================= */
+
+h1,
+h2,
+.question {
+    font-family: 'Itim', cursive;
+}
 
 h1 {
-    font-family: 'Itim', cursive;
     font-size: clamp(42px, 8vw, 72px);
-    color: #6260c8;
-    text-shadow: 0 5px 15px rgba(96,90,200,.2);
+
+    color: #6461c9;
+
+    text-shadow:
+        0 5px 15px rgba(96,90,200,.2);
+
     margin-bottom: 15px;
 }
 
 h2 {
-    font-family: 'Itim', cursive;
-    font-size: clamp(35px, 7vw, 55px);
-    color: #6664c9;
+    font-size: clamp(38px, 7vw, 58px);
+
+    color: #6562c7;
+
     margin-bottom: 20px;
 }
 
 p {
     font-size: 18px;
+
     line-height: 1.8;
-    color: #67659c;
+
+    color: #69679e;
 }
 
 .subtitle {
@@ -170,44 +224,62 @@ p {
 
 .heart-big {
     font-size: 90px;
-    animation: heartBeat 1.2s infinite;
+
     margin-bottom: 15px;
+
+    animation: heartBeat 1.2s infinite;
 }
 
 @keyframes heartBeat {
+
     0%,100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.15);
     }
+
 }
 
-/* ---------------- Buttons ---------------- */
+/* =========================================
+   BUTTONS
+========================================= */
 
 .buttons {
     display: flex;
+
     justify-content: center;
     align-items: center;
+
     gap: 18px;
+
     flex-wrap: wrap;
+
     margin-top: 30px;
 }
 
 button {
     border: none;
+
     font-family: 'Mali', cursive;
+
     font-size: 18px;
+
     font-weight: 600;
+
     padding: 15px 30px;
+
     border-radius: 999px;
+
     cursor: pointer;
 
     transition:
         transform .2s ease,
         box-shadow .2s ease;
 
-    box-shadow: 0 8px 20px rgba(80,70,170,.18);
+    box-shadow:
+        0 8px 20px rgba(80,70,170,.18);
 }
 
 button:hover {
@@ -215,95 +287,279 @@ button:hover {
 }
 
 .primary {
-    background: linear-gradient(135deg,#8d86ff,#6e9cff);
+    background:
+        linear-gradient(
+            135deg,
+            #8d86ff,
+            #6e9cff
+        );
+
     color: white;
 }
 
 .love {
-    background: linear-gradient(135deg,#ff91cf,#ff70b7);
+    background:
+        linear-gradient(
+            135deg,
+            #ff91cf,
+            #ff70b7
+        );
+
     color: white;
 }
 
 .no-love {
-    background: linear-gradient(135deg,#9cbaff,#7395ed);
+    background:
+        linear-gradient(
+            135deg,
+            #9cbaff,
+            #7395ed
+        );
+
     color: white;
+
+    position: relative;
 }
 
 .next {
-    background: linear-gradient(135deg,#9187ff,#8cafff);
+    background:
+        linear-gradient(
+            135deg,
+            #9187ff,
+            #8cafff
+        );
+
     color: white;
 }
 
-/* ---------------- Questions ---------------- */
+/* =========================================
+   QUESTIONS
+========================================= */
 
 .question-number {
     display: inline-block;
+
     background: rgba(255,255,255,.75);
+
     padding: 7px 18px;
+
     border-radius: 999px;
+
     margin-bottom: 20px;
+
     color: #7774c7;
+
     font-weight: 600;
 }
 
 .question {
-    font-family: 'Itim', cursive;
-    font-size: 35px;
+    font-size: 34px;
+
     color: #5653a4;
-    margin-bottom: 25px;
+
+    margin-bottom: 28px;
+
+    line-height: 1.4;
 }
 
 .answer-list {
+
     display: flex;
+
     flex-direction: column;
+
     gap: 13px;
+
     width: 100%;
-    max-width: 450px;
+
+    max-width: 470px;
+
     margin: auto;
 }
 
 .answer {
+
     width: 100%;
-    background: rgba(255,255,255,.75);
+
+    background: rgba(255,255,255,.78);
+
     color: #6260a5;
+
     border: 2px solid rgba(137,135,230,.25);
+
     box-shadow: none;
 }
 
 .answer:hover {
+
     background: white;
+
     border-color: #aaa7ff;
+
 }
 
-/* ---------------- Message ---------------- */
+/* =========================================
+   MESSAGE
+========================================= */
 
 .message {
-    background: rgba(255,255,255,.5);
+
+    background:
+        rgba(255,255,255,.52);
+
     padding: 25px;
+
     border-radius: 25px;
+
     margin: 20px 0;
 }
 
 .message p {
-    font-size: 20px;
+    font-size: 19px;
 }
 
-.small {
-    font-size: 15px;
-    opacity: .8;
+.love-text {
+
+    font-family: 'Itim', cursive;
+
+    font-size:
+        clamp(40px, 8vw, 65px);
+
+    color: #ff88c8;
+
+    text-shadow:
+        0 5px 15px rgba(255,120,200,.25);
+
+    margin: 15px 0;
 }
 
-/* ---------------- Final ---------------- */
+/* =========================================
+   FLOATING HEART
+========================================= */
+
+.floating-heart {
+
+    position: fixed;
+
+    bottom: -50px;
+
+    font-size: 25px;
+
+    animation:
+        floatUp linear forwards;
+
+    pointer-events: none;
+
+    z-index: 10;
+}
+
+@keyframes floatUp {
+
+    from {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    to {
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+
+}
+
+/* =========================================
+   CAT DASH 🐈💨
+========================================= */
+
+.cat-dash {
+
+    position: fixed;
+
+    left: -120px;
+
+    font-size: 45px;
+
+    z-index: 100;
+
+    pointer-events: none;
+
+    animation:
+        catDash 1.2s linear forwards;
+}
+
+@keyframes catDash {
+
+    0% {
+
+        left: -120px;
+
+        transform:
+            rotate(-8deg)
+            scale(1);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+
+        transform:
+            rotate(8deg)
+            scale(1.2);
+    }
+
+    100% {
+
+        left: 110vw;
+
+        transform:
+            rotate(-8deg)
+            scale(.8);
+
+        opacity: 0;
+    }
+
+}
+
+/* =========================================
+   FINAL SCREEN
+========================================= */
 
 .final-screen {
+
     position: fixed;
+
     inset: 0;
+
     background:
-        radial-gradient(circle at 50% 50%, #7774dc, #44499e 80%);
+        radial-gradient(
+            circle at 50% 45%,
+            #8581e8,
+            #4a4c9e 80%
+        );
+
     display: none;
+
     justify-content: center;
+
     align-items: center;
+
     z-index: 20;
+
     overflow: hidden;
 }
 
@@ -312,113 +568,128 @@ button:hover {
 }
 
 .final-content {
+
     text-align: center;
+
     color: white;
+
     z-index: 30;
-    animation: finalAppear 1.2s ease;
+
     padding: 20px;
+
+    max-width: 750px;
+
+    animation:
+        finalAppear 1.2s ease;
 }
 
 @keyframes finalAppear {
+
     from {
+
         opacity: 0;
-        transform: scale(.6);
+
+        transform:
+            scale(.6)
+            translateY(30px);
     }
+
     to {
+
         opacity: 1;
-        transform: scale(1);
+
+        transform:
+            scale(1)
+            translateY(0);
     }
+
 }
 
 .final-content h1 {
+
     color: white;
-    font-size: clamp(55px, 12vw, 110px);
+
+    font-size:
+        clamp(55px, 12vw, 110px);
+
     text-shadow:
         0 0 15px #fff,
         0 0 35px #aaa8ff;
 }
 
 .final-content h2 {
+
     color: white;
-    font-size: clamp(40px, 8vw, 75px);
+
+    font-size:
+        clamp(40px, 8vw, 75px);
 }
 
 .final-content p {
+
     color: white;
+
     max-width: 650px;
+
     margin: 15px auto;
+
 }
 
 .final-heart {
-    font-size: 70px;
-    animation: heartBeat 1s infinite;
+
+    font-size: 75px;
+
+    animation:
+        heartBeat 1s infinite;
 }
 
-/* ---------------- Floating Hearts ---------------- */
-
-.floating-heart {
-    position: fixed;
-    bottom: -50px;
-    font-size: 25px;
-    animation: floatUp linear forwards;
-    pointer-events: none;
-    z-index: 10;
-}
-
-@keyframes floatUp {
-    from {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-    }
-    15% {
-        opacity: 1;
-    }
-    to {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-/* ---------------- Fireworks ---------------- */
+/* =========================================
+   FIREWORK CANVAS
+========================================= */
 
 #fireworks {
+
     position: fixed;
+
     inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
     z-index: 25;
+
     pointer-events: none;
 }
 
-/* ---------------- Progress ---------------- */
-
-.progress {
-    width: 100%;
-    max-width: 400px;
-    height: 8px;
-    background: rgba(255,255,255,.5);
-    border-radius: 20px;
-    margin: 25px auto;
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 100%;
-    width: 20%;
-    background: linear-gradient(90deg,#ff91d4,#8b9dff);
-    border-radius: 20px;
-    transition: width .5s ease;
-}
-
-/* ---------------- Mobile ---------------- */
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 600px) {
 
+    body {
+        overflow: hidden;
+    }
+
+    .container {
+        padding: 12px;
+    }
+
     .card {
-        min-height: 570px;
-        padding: 30px 20px;
+
+        width: 96vw;
+
+        min-height: 590px;
+
+        padding:
+            30px 18px;
+
+        border-radius: 30px;
     }
 
     .question {
-        font-size: 29px;
+        font-size: 28px;
     }
 
     p {
@@ -427,323 +698,619 @@ button:hover {
 
     button {
         font-size: 16px;
-        padding: 13px 23px;
+
+        padding:
+            13px 22px;
     }
 
     .heart-big {
         font-size: 70px;
     }
+
+    .message {
+        padding: 18px;
+    }
+
+    .message p {
+        font-size: 16px;
+    }
+
 }
 </style>
 </head>
 
+
 <body>
 
-<div class="background" id="background"></div>
+
+<!-- =========================================
+     BACKGROUND
+========================================= -->
+
+<div
+    class="background"
+    id="background">
+</div>
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
 
 <div class="container">
 
 <div class="card">
 
-    <!-- ================= PAGE 1 ================= -->
 
-    <section class="screen active" id="screen1">
+<!-- =========================================
+     SCREEN 1
+========================================= -->
 
-        <div class="heart-big">💜</div>
+<section
+    class="screen active"
+    id="screen1">
 
-        <h1>มีอะไรอยากถาม...</h1>
+    <div class="heart-big">
+        💜
+    </div>
 
-        <p class="subtitle">
-            คำถามสำคัญมาก ๆ<br>
-            ขอให้ตอบตามความจริงนะ 👀
-        </p>
+    <h1>
+        มีอะไรอยากถาม...
+    </h1>
 
-        <button class="primary" onclick="nextScreen(2)">
-            พร้อมแล้ว 💗
+    <p class="subtitle">
+
+        คำถามสำคัญมาก ๆ
+        <br>
+
+        ขอให้ตอบตามความจริงนะ 👀
+
+    </p>
+
+    <button
+        class="primary"
+        onclick="nextScreen(2)">
+
+        พร้อมแล้ว 💗
+
+    </button>
+
+</section>
+
+
+<!-- =========================================
+     SCREEN 2
+========================================= -->
+
+<section
+    class="screen"
+    id="screen2">
+
+    <div class="question-number">
+
+        คำถามสำคัญที่สุด 💌
+
+    </div>
+
+    <div class="heart-big">
+
+        🥺
+
+    </div>
+
+    <div class="question">
+
+        รักคุณมั้ย? 💜
+
+    </div>
+
+    <p>
+
+        คำถามนี้สำคัญมากนะ
+        <br>
+
+        คิดก่อนตอบได้เลย 🥺
+
+    </p>
+
+    <div class="buttons">
+
+        <button
+            class="love"
+            onclick="loveAnswer()">
+
+            ❤️ รัก
+
         </button>
 
-    </section>
+
+        <button
+            class="no-love"
+            id="noLove"
+            onmouseover="runAway()"
+            onclick="runAway()">
+
+            💔 ไม่รัก
+
+        </button>
+
+    </div>
+
+</section>
 
 
-    <!-- ================= PAGE 2 ================= -->
+<!-- =========================================
+     SCREEN 3
+========================================= -->
 
-    <section class="screen" id="screen2">
+<section
+    class="screen"
+    id="screen3">
 
-        <div class="question-number">
-            คำถามสำคัญที่สุด 💌
-        </div>
+    <div class="question-number">
 
-        <div class="heart-big">🥺</div>
+        คำถามที่ 1 / 5 💌
 
-        <div class="question">
-            รักเค้ามั้ย?
+    </div>
+
+    <div class="question">
+
+        ถ้าให้เลือก 1 อย่าง
+        <br>
+
+        สิ่งที่ชอบที่สุดเวลาอยู่ด้วยกันคืออะไร? 🥰
+
+    </div>
+
+    <div class="answer-list">
+
+        <button
+            class="answer"
+            onclick="answerQuestion(4)">
+
+            🫶 ได้อยู่ด้วยกัน
+
+        </button>
+
+        <button
+            class="answer"
+            onclick="answerQuestion(4)">
+
+            😂 ได้กวนกัน
+
+        </button>
+
+        <button
+            class="answer"
+            onclick="answerQuestion(4)">
+
+            🍜 ได้ไปหาอะไรกิน
+
+        </button>
+
+        <button
+            class="answer"
+            onclick="answerQuestion(4)">
+
+            💜 ทุกอย่างที่มีคุณ
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SCREEN 4
+========================================= -->
+
+<section
+    class="screen"
+    id="screen4">
+
+    <div class="question-number">
+
+        คำถามที่ 2 / 5 💙
+
+    </div>
+
+    <div class="question">
+
+        ถ้าวันนี้เราได้ไปเที่ยวด้วยกัน
+        <br>
+
+        คุณอยากไปไหน? ✈️
+
+    </div>
+
+    <div class="answer-list">
+
+        <button
+            class="answer"
+            onclick="answerQuestion(5)">
+
+            🌊 ทะเล
+
+        </button>
+
+        <button
+            class="answer"
+            onclick="answerQuestion(5)">
+
+            ⛰️ ภูเขา
+
+        </button>
+
+        <button
+            class="answer"
+            onclick="answerQuestion(5)">
+
+            🌃 เดินเล่นในเมือง
+
+        </button>
+
+        <button
+            class="answer"
+            onclick="answerQuestion(5)">
+
+            🏠 ที่ไหนก็ได้ ขอแค่มีคุณ
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SCREEN 5
+========================================= -->
+
+<section
+    class="screen"
+    id="screen5">
+
+    <div class="question-number">
+
+        คำถามที่ 3 / 5 🐱
+
+    </div>
+
+    <div class="question">
+
+        ถ้าเราได้อยู่ด้วยกันทั้งวัน
+        <br>
+
+        คุณคิดว่าเราจะทำอะไรกัน? 👀
+
+    </div>
+
+    <div class="answer-list">
+
+        <button
+            class="answer"
+            onclick="answerQuestion(6)">
+
+            😂 กวนกันทั้งวัน
+
+        </button>
+
+        <button
+            class="answer"
+            onclick="answerQuestion(6)">
+
+            🍜 กินกันทั้งวัน
+
+        </button>
+
+        <button
+            class="answer"
+            onclick="answerQuestion(6)">
+
+            🎮 เล่นด้วยกัน
+
+        </button>
+
+        <button
+            class="answer"
+            onclick="answerQuestion(6)">
+
+            🥰 นั่งอยู่ด้วยกันเฉย ๆ
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SCREEN 6
+========================================= -->
+
+<section
+    class="screen"
+    id="screen6">
+
+    <div class="question-number">
+
+        คำถามที่ 4 / 5 💗
+
+    </div>
+
+    <div class="question">
+
+        ถ้าคุณงอนเค้า...
+        <br>
+
+        เค้าควรทำยังไง? 🥺
+
+    </div>
+
+    <div class="answer-list">
+
+        <button
+            class="answer"
+            onclick="answerQuestion(7)">
+
+            🫂 กอด
+
+        </button>
+
+        <button
+            class="answer"
+            onclick="answerQuestion(7)">
+
+            🍰 ซื้อของกินให้
+
+        </button>
+
+        <button
+            class="answer"
+            onclick="answerQuestion(7)">
+
+            💬 ง้อดี ๆ
+
+        </button>
+
+        <button
+            class="answer"
+            onclick="answerQuestion(7)">
+
+            🐈 พุ่งเข้าไปกอดเลย
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SCREEN 7
+========================================= -->
+
+<section
+    class="screen"
+    id="screen7">
+
+    <div class="question-number">
+
+        คำถามสุดท้าย 💌
+
+    </div>
+
+    <div class="question">
+
+        แล้วคุณอยากอยู่กับเค้า
+        <br>
+
+        ไปนาน ๆ มั้ย? 🥺
+
+    </div>
+
+    <div class="buttons">
+
+        <button
+            class="love"
+            onclick="answerQuestion(8)">
+
+            ❤️ อยากสิ
+
+        </button>
+
+        <button
+            class="love"
+            onclick="answerQuestion(8)">
+
+            💜 อยากมาก ๆ
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SCREEN 8
+========================================= -->
+
+<section
+    class="screen"
+    id="screen8">
+
+    <div class="heart-big">
+
+        🥺💜
+
+    </div>
+
+    <h2>
+
+        ตอบครบแล้ววว
+
+    </h2>
+
+    <div class="message">
+
+        <p>
+
+            จริง ๆ แล้วคำถามทั้งหมด
+            <br>
+
+            ไม่มีคำตอบไหนผิดเลยนะ
+
+        </p>
+
+        <br>
+
+        <p>
+
+            เพราะสิ่งที่เค้าอยากบอกคุณจริง ๆ คือ...
+
+        </p>
+
+        <div class="love-text">
+
+            รักคุณมาก 💜
+
         </div>
 
         <p>
-            คิดดี ๆ ก่อนตอบนะ<br>
-            เพราะคำตอบมีผลต่อหัวใจเค้ามาก ๆ 💔
+
+            ขอบคุณที่เข้ามาเป็นความสุข
+            <br>
+
+            และเป็นส่วนหนึ่งในชีวิตของเค้านะ 🥺
+
         </p>
 
-        <div class="buttons">
+    </div>
 
-            <button class="love" onclick="loveAnswer()">
-                ❤️ รัก
-            </button>
+    <button
+        class="primary"
+        onclick="showFinal()">
 
-            <button
-                class="no-love"
-                id="noLove"
-                onmouseover="runAway()"
-                onclick="runAway()">
-                💔 ไม่รัก
-            </button>
+        มีอะไรจะบอกอีก 💌
 
-        </div>
+    </button>
 
-    </section>
+</section>
 
-
-    <!-- ================= PAGE 3 ================= -->
-
-    <section class="screen" id="screen3">
-
-        <div class="question-number">
-            คำถามที่ 1 / 5
-        </div>
-
-        <div class="question">
-            เวลาเราอยู่ด้วยกัน<br>
-            ชอบทำอะไรมากที่สุด? 🥰
-        </div>
-
-        <div class="answer-list">
-
-            <button class="answer" onclick="answerQuestion(4)">
-                💕 อยู่ด้วยกันเฉย ๆ
-            </button>
-
-            <button class="answer" onclick="answerQuestion(4)">
-                🍜 หาอะไรกินด้วยกัน
-            </button>
-
-            <button class="answer" onclick="answerQuestion(4)">
-                🎮 เล่นอะไรด้วยกัน
-            </button>
-
-            <button class="answer" onclick="answerQuestion(4)">
-                🫶 ทุกอย่างที่มีเธอ
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= PAGE 4 ================= -->
-
-    <section class="screen" id="screen4">
-
-        <div class="question-number">
-            คำถามที่ 2 / 5
-        </div>
-
-        <div class="question">
-            ถ้าเราได้ไปเที่ยวด้วยกัน<br>
-            อยากไปที่ไหน? ✈️
-        </div>
-
-        <div class="answer-list">
-
-            <button class="answer" onclick="answerQuestion(5)">
-                🌊 ทะเล
-            </button>
-
-            <button class="answer" onclick="answerQuestion(5)">
-                ⛰️ ภูเขา
-            </button>
-
-            <button class="answer" onclick="answerQuestion(5)">
-                🌃 เมืองสวย ๆ
-            </button>
-
-            <button class="answer" onclick="answerQuestion(5)">
-                🏠 ที่ไหนก็ได้ ขอแค่มีเธอ
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= PAGE 5 ================= -->
-
-    <section class="screen" id="screen5">
-
-        <div class="question-number">
-            คำถามที่ 3 / 5
-        </div>
-
-        <div class="question">
-            ถ้าเค้างอน... 🥺
-            <br>
-            จะทำยังไง?
-        </div>
-
-        <div class="answer-list">
-
-            <button class="answer" onclick="answerQuestion(6)">
-                🫂 กอด
-            </button>
-
-            <button class="answer" onclick="answerQuestion(6)">
-                🍰 ซื้อของกินให้
-            </button>
-
-            <button class="answer" onclick="answerQuestion(6)">
-                💬 ง้อ
-            </button>
-
-            <button class="answer" onclick="answerQuestion(6)">
-                💜 ทำทุกอย่างที่ทำให้หายงอน
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= PAGE 6 ================= -->
-
-    <section class="screen" id="screen6">
-
-        <div class="question-number">
-            คำถามที่ 4 / 5
-        </div>
-
-        <div class="question">
-            คิดว่าเค้าน่ารักมั้ย? 👀
-        </div>
-
-        <div class="answer-list">
-
-            <button class="answer" onclick="answerQuestion(7)">
-                😳 น่ารักมาก
-            </button>
-
-            <button class="answer" onclick="answerQuestion(7)">
-                🥰 น่ารักที่สุด
-            </button>
-
-            <button class="answer" onclick="answerQuestion(7)">
-                💗 น่ารักเกินไปแล้ว
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= PAGE 7 ================= -->
-
-    <section class="screen" id="screen7">
-
-        <div class="question-number">
-            คำถามสุดท้าย 💌
-        </div>
-
-        <div class="question">
-            อยากอยู่กับเค้า<br>
-            ไปนาน ๆ มั้ย?
-        </div>
-
-        <div class="buttons">
-
-            <button class="love" onclick="answerQuestion(8)">
-                ❤️ อยากสิ
-            </button>
-
-            <button class="love" onclick="answerQuestion(8)">
-                💕 อยากมาก
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= PAGE 8 ================= -->
-
-    <section class="screen" id="screen8">
-
-        <div class="heart-big">🥰</div>
-
-        <h2>เฉลยแล้ววว...</h2>
-
-        <div class="message">
-
-            <p>
-                จริง ๆ แล้วคำถามทั้งหมด<br>
-                ไม่ได้มีคำตอบที่ผิดเลยนะ
-            </p>
-
-            <br>
-
-            <p>
-                เพราะคำตอบที่เค้าอยากได้ที่สุด<br>
-                ก็คือ...
-            </p>
-
-            <br>
-
-            <h2>“เธอยังอยู่กับเค้า” 💜</h2>
-
-        </div>
-
-        <button class="primary" onclick="showFinal()">
-            ไปดูข้อความสุดท้าย 💌
-        </button>
-
-    </section>
 
 </div>
 </div>
 
 
-<!-- ================= FINAL ================= -->
+<!-- =========================================
+     FINAL SCREEN
+========================================= -->
 
-<div class="final-screen" id="finalScreen">
+<div
+    class="final-screen"
+    id="finalScreen">
 
-    <canvas id="fireworks"></canvas>
+
+    <canvas
+        id="fireworks">
+    </canvas>
+
 
     <div class="final-content">
 
+
         <div class="final-heart">
+
             💜
+
         </div>
 
+
         <h1>
+
             Happy
+
         </h1>
 
+
         <h2>
+
             1 Month 🎉
+
         </h2>
 
-        <p>
-            ขอบคุณที่เข้ามาเป็นความสุขในชีวิตเค้านะ
-            <br>
-            ขอบคุณสำหรับทุกช่วงเวลาที่เราได้อยู่ด้วยกัน
-        </p>
+
+        <div
+            class="love-text"
+            style="color:white;">
+
+            รักคุณมาก 💜
+
+        </div>
+
 
         <p>
-            ถึงจะเพิ่งผ่านมาแค่ 1 เดือน
-            <br>
-            แต่เค้าก็อยากมีเธออยู่ด้วยกันไปนาน ๆ เลยนะ 🥺
+
+            สุขสันต์ครบรอบ 1 เดือนนะ
+            🥺💗
+
         </p>
 
+
         <p>
-            <strong>รักเธอที่สุดเลยนะ 💜</strong>
+
+            ขอบคุณสำหรับทุกช่วงเวลาที่ผ่านมา
+            <br>
+
+            ขอบคุณที่ยังอยู่ข้าง ๆ กัน
+
         </p>
+
+
+        <p>
+
+            ถึงจะเป็นเวลาแค่ 1 เดือน
+            <br>
+
+            แต่เค้าก็มีความสุขมาก ๆ เลย
+
+        </p>
+
+
+        <p>
+
+            และหวังว่าเราจะมีเดือนที่ 2
+            <br>
+
+            เดือนที่ 3
+            และอีกหลาย ๆ เดือนด้วยกันนะ
+
+        </p>
+
+
+        <div
+            style="
+            font-size:35px;
+            margin-top:20px;
+            ">
+
+            🐈💨 🐈💨 🐈💨
+
+        </div>
+
+
+        <p
+            style="
+            margin-top:15px;
+            font-size:15px;
+            ">
+
+            ขอบคุณที่อยู่ด้วยกันนะ 💜
+
+        </p>
+
 
     </div>
 
@@ -752,22 +1319,32 @@ button:hover {
 
 <script>
 
-/* =====================================================
-   BACKGROUND STARS
-===================================================== */
+/* =========================================
+   CREATE STARS
+========================================= */
 
-const background = document.getElementById("background");
+const background =
+    document.getElementById("background");
 
-for(let i = 0; i < 70; i++){
 
-    const star = document.createElement("div");
+for(let i = 0; i < 80; i++){
 
-    star.className = "star";
+    const star =
+        document.createElement("div");
 
-    star.innerHTML = Math.random() > .5 ? "✦" : "·";
+    star.className =
+        "star";
 
-    star.style.left = Math.random() * 100 + "%";
-    star.style.top = Math.random() * 100 + "%";
+    star.innerHTML =
+        Math.random() > .5
+        ? "✦"
+        : "·";
+
+    star.style.left =
+        Math.random() * 100 + "%";
+
+    star.style.top =
+        Math.random() * 100 + "%";
 
     star.style.fontSize =
         (Math.random() * 15 + 8) + "px";
@@ -776,16 +1353,21 @@ for(let i = 0; i < 70; i++){
         Math.random() * 2 + "s";
 
     background.appendChild(star);
+
 }
 
 
-/* Clouds */
+/* =========================================
+   CREATE CLOUDS
+========================================= */
 
-for(let i = 0; i < 6; i++){
+for(let i = 0; i < 7; i++){
 
-    const cloud = document.createElement("div");
+    const cloud =
+        document.createElement("div");
 
-    cloud.className = "cloud";
+    cloud.className =
+        "cloud";
 
     cloud.style.left =
         Math.random() * 100 + "%";
@@ -796,146 +1378,331 @@ for(let i = 0; i < 6; i++){
     cloud.style.transform =
         `scale(${Math.random() * .7 + .5})`;
 
+    cloud.style.animationDelay =
+        Math.random() * 5 + "s";
+
     background.appendChild(cloud);
+
 }
 
 
-/* =====================================================
-   SCREEN SYSTEM
-===================================================== */
+/* =========================================
+   CHANGE SCREEN
+========================================= */
 
 function nextScreen(number){
 
     document
         .querySelectorAll(".screen")
         .forEach(screen => {
+
             screen.classList.remove("active");
+
         });
 
-    document
-        .getElementById("screen" + number)
-        .classList.add("active");
+
+    const next =
+        document.getElementById(
+            "screen" + number
+        );
+
+
+    if(next){
+
+        next.classList.add("active");
+
+    }
 
 }
 
 
-/* =====================================================
-   LOVE BUTTON
-===================================================== */
+/* =========================================
+   LOVE ANSWER
+========================================= */
 
 function loveAnswer(){
 
-    createHearts(15);
+    createHearts(20);
 
-    nextScreen(3);
+    catDash(6);
+
+    setTimeout(() => {
+
+        nextScreen(3);
+
+    }, 400);
 
 }
 
 
-/* =====================================================
+/* =========================================
    RUN AWAY BUTTON
-===================================================== */
+========================================= */
 
 let runCount = 0;
+
 
 function runAway(){
 
     const button =
         document.getElementById("noLove");
 
+
     runCount++;
+
+
+    catDash(2);
+
 
     if(runCount >= 5){
 
-        button.innerHTML = "😭 ยอมแล้ว รักก็ได้";
+        button.innerHTML =
+            "😭 ยอมแล้ว รักก็ได้";
 
-        button.onmouseover = null;
+
+        button.onmouseover =
+            null;
+
 
         button.onclick = () => {
+
             loveAnswer();
+
         };
 
+
         return;
+
     }
 
-    const maxX = 180;
-    const maxY = 120;
+
+    const maxX = 220;
+
+    const maxY = 140;
+
 
     const x =
-        Math.random() * maxX - maxX / 2;
+        Math.random() *
+        maxX -
+        maxX / 2;
+
 
     const y =
-        Math.random() * maxY - maxY / 2;
+        Math.random() *
+        maxY -
+        maxY / 2;
+
 
     button.style.transform =
         `translate(${x}px, ${y}px)`;
 
+
+    if(runCount === 2){
+
+        button.innerHTML =
+            "😳 อย่าเพิ่งกดสิ";
+
+    }
+
+
+    if(runCount === 3){
+
+        button.innerHTML =
+            "🥺 ไม่ให้กดหรอก";
+
+    }
+
+
+    if(runCount === 4){
+
+        button.innerHTML =
+            "🐈💨 จับเค้าให้ได้ก่อน";
+
+    }
+
 }
 
 
-/* =====================================================
+/* =========================================
    QUESTIONS
-===================================================== */
+========================================= */
 
 function answerQuestion(next){
 
-    createHearts(8);
+    createHearts(10);
+
+    catDash(3);
+
 
     setTimeout(() => {
+
         nextScreen(next);
-    }, 250);
+
+    }, 350);
 
 }
 
 
-/* =====================================================
+/* =========================================
    FLOATING HEARTS
-===================================================== */
+========================================= */
 
 function createHearts(amount){
 
     const hearts = [
+
         "💜",
         "💗",
         "💙",
         "💕",
         "✨",
-        "🤍"
+        "🤍",
+        "💖"
+
     ];
+
 
     for(let i = 0; i < amount; i++){
 
         const heart =
             document.createElement("div");
 
+
         heart.className =
             "floating-heart";
 
+
         heart.innerHTML =
-            hearts[Math.floor(Math.random() * hearts.length)];
+            hearts[
+                Math.floor(
+                    Math.random() *
+                    hearts.length
+                )
+            ];
+
 
         heart.style.left =
-            Math.random() * 100 + "vw";
+            Math.random() *
+            100 +
+            "vw";
+
 
         heart.style.fontSize =
-            (Math.random() * 25 + 15) + "px";
+            (
+                Math.random() *
+                25 +
+                15
+            ) +
+            "px";
+
 
         heart.style.animationDuration =
-            (Math.random() * 3 + 3) + "s";
+            (
+                Math.random() *
+                3 +
+                3
+            ) +
+            "s";
 
-        document.body.appendChild(heart);
+
+        document.body.appendChild(
+            heart
+        );
+
 
         setTimeout(() => {
+
             heart.remove();
-        }, 6000);
+
+        }, 6500);
+
     }
 
 }
 
 
-/* =====================================================
+/* =========================================
+   CAT DASH
+========================================= */
+
+function catDash(amount = 3){
+
+    const cats = [
+
+        "🐈💨",
+        "😺💨",
+        "🐱💨",
+        "😸💨",
+        "🐈‍⬛💨"
+
+    ];
+
+
+    for(let i = 0; i < amount; i++){
+
+        const cat =
+            document.createElement("div");
+
+
+        cat.className =
+            "cat-dash";
+
+
+        cat.innerHTML =
+            cats[
+                Math.floor(
+                    Math.random() *
+                    cats.length
+                )
+            ];
+
+
+        cat.style.top =
+            (
+                Math.random() *
+                80 +
+                10
+            ) +
+            "vh";
+
+
+        cat.style.fontSize =
+            (
+                Math.random() *
+                25 +
+                35
+            ) +
+            "px";
+
+
+        cat.style.animationDuration =
+            (
+                Math.random() *
+                .7 +
+                .8
+            ) +
+            "s";
+
+
+        document.body.appendChild(
+            cat
+        );
+
+
+        setTimeout(() => {
+
+            cat.remove();
+
+        }, 2000);
+
+    }
+
+}
+
+
+/* =========================================
    FINAL SCREEN
-===================================================== */
+========================================= */
 
 function showFinal(){
 
@@ -943,24 +1710,57 @@ function showFinal(){
         .getElementById("finalScreen")
         .classList.add("active");
 
+
     startFireworks();
 
-    createHearts(30);
+
+    createHearts(50);
+
+
+    /* แมวพุ่งชุดแรก */
+
+    catDash(12);
+
+
+    /* แมวพุ่งเรื่อย ๆ */
+
+    const catInterval =
+        setInterval(() => {
+
+            catDash(6);
+
+        }, 1000);
+
+
+    /* หยุดหลังจาก 15 วินาที */
+
+    setTimeout(() => {
+
+        clearInterval(
+            catInterval
+        );
+
+    }, 15000);
 
 }
 
 
-/* =====================================================
+/* =========================================
    FIREWORKS
-===================================================== */
+========================================= */
 
 const canvas =
-    document.getElementById("fireworks");
+    document.getElementById(
+        "fireworks"
+    );
+
 
 const ctx =
     canvas.getContext("2d");
 
+
 let fireworks = [];
+
 
 function resizeCanvas(){
 
@@ -972,7 +1772,9 @@ function resizeCanvas(){
 
 }
 
+
 resizeCanvas();
+
 
 window.addEventListener(
     "resize",
@@ -980,88 +1782,155 @@ window.addEventListener(
 );
 
 
+/* =========================================
+   PARTICLE
+========================================= */
+
 class Particle {
 
     constructor(x, y){
 
         this.x = x;
+
         this.y = y;
 
+
         const angle =
-            Math.random() * Math.PI * 2;
+            Math.random() *
+            Math.PI *
+            2;
+
 
         const speed =
-            Math.random() * 7 + 2;
+            Math.random() *
+            7 +
+            2;
+
 
         this.vx =
-            Math.cos(angle) * speed;
+            Math.cos(angle) *
+            speed;
+
 
         this.vy =
-            Math.sin(angle) * speed;
+            Math.sin(angle) *
+            speed;
 
-        this.life = 100;
+
+        this.life =
+            100;
+
 
         this.size =
-            Math.random() * 3 + 1;
+            Math.random() *
+            3 +
+            1;
+
 
         this.color =
-            `hsl(${Math.random() * 360}, 100%, 75%)`;
+            `hsl(
+                ${Math.random() * 360},
+                100%,
+                75%
+            )`;
+
     }
+
 
     update(){
 
-        this.x += this.vx;
-        this.y += this.vy;
+        this.x +=
+            this.vx;
 
-        this.vy += .05;
 
-        this.vx *= .98;
-        this.vy *= .98;
+        this.y +=
+            this.vy;
 
-        this.life -= 1;
+
+        this.vy +=
+            .05;
+
+
+        this.vx *=
+            .98;
+
+
+        this.vy *=
+            .98;
+
+
+        this.life -=
+            1;
+
     }
+
 
     draw(){
 
         ctx.globalAlpha =
             this.life / 100;
 
+
         ctx.beginPath();
 
+
         ctx.arc(
+
             this.x,
+
             this.y,
+
             this.size,
+
             0,
+
             Math.PI * 2
+
         );
+
 
         ctx.fillStyle =
             this.color;
 
+
         ctx.fill();
 
-        ctx.globalAlpha = 1;
+
+        ctx.globalAlpha =
+            1;
 
     }
 
 }
 
 
+/* =========================================
+   CREATE FIREWORK
+========================================= */
+
 function createFirework(){
 
     const x =
-        Math.random() * canvas.width;
+        Math.random() *
+        canvas.width;
+
 
     const y =
         Math.random() *
-        canvas.height * .55 +
+        canvas.height *
+        .55 +
         50;
 
-    for(let i = 0; i < 80; i++){
+
+    for(let i = 0; i < 90; i++){
 
         fireworks.push(
-            new Particle(x,y)
+
+            new Particle(
+                x,
+                y
+            )
+
         );
 
     }
@@ -1069,24 +1938,39 @@ function createFirework(){
 }
 
 
+/* =========================================
+   ANIMATE FIREWORK
+========================================= */
+
 function animateFireworks(){
 
     ctx.clearRect(
+
         0,
+
         0,
+
         canvas.width,
+
         canvas.height
+
     );
 
+
     fireworks =
-        fireworks.filter(p => p.life > 0);
+        fireworks.filter(
+            p => p.life > 0
+        );
+
 
     fireworks.forEach(p => {
 
         p.update();
+
         p.draw();
 
     });
+
 
     requestAnimationFrame(
         animateFireworks
@@ -1095,36 +1979,62 @@ function animateFireworks(){
 }
 
 
+/* =========================================
+   START FIREWORKS
+========================================= */
+
 function startFireworks(){
 
     animateFireworks();
+
+
+    /* ยิงพลุทันทีหลายลูก */
+
+    for(let i = 0; i < 5; i++){
+
+        setTimeout(() => {
+
+            createFirework();
+
+        }, i * 300);
+
+    }
+
+
+    /* พลุต่อเนื่อง */
 
     setInterval(() => {
 
         createFirework();
 
-    }, 650);
+    }, 700);
 
 }
 
 
-/* =====================================================
-   AUTOMATIC FLOATING HEARTS
-===================================================== */
+/* =========================================
+   RANDOM HEARTS ON FINAL
+========================================= */
 
 setInterval(() => {
 
+    const final =
+        document.getElementById(
+            "finalScreen"
+        );
+
+
     if(
-        document
-        .getElementById("finalScreen")
-        .classList.contains("active")
+        final.classList.contains(
+            "active"
+        )
     ){
 
         createHearts(3);
 
     }
 
-}, 1000);
+}, 1200);
 
 </script>
 
